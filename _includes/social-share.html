@@ -10,6 +10,14 @@
 <section id = "social-share-section">
   <span class="sr-only">Share: </span>
 
+  {% if site.share-links-active.weibo %}
+    <a href="https://service.weibo.com/share/share.php?title={{ page.title | strip_html | url_encode }}&url={{ page.url | absolute_url | url_encode }}"
+      class="btn btn-social-icon btn-soundcloud" title="Share on Weibo">
+      <span class="fab fa-fw fa-weibo" aria-hidden="true"></span>
+      <span class="sr-only">Weibo</span>
+    </a>
+  {% endif %}
+
   {% if site.share-links-active.twitter %}
     <a href="https://twitter.com/intent/tweet?text={{ page.title | strip_html | url_encode }}&url={{ page.url | absolute_url | url_encode }}"
       class="btn btn-social-icon btn-twitter" title="Share on Twitter">

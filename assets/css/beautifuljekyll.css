@@ -232,7 +232,7 @@ img {
   }
 
   .navbar-expand-xl .navbar-nav .nav-item:not(.dropdown):last-child .nav-link {
-    padding-right: 0;
+    /*padding-right: 0;*/
   }
 }
 
@@ -301,6 +301,7 @@ img {
 }
 .navbar-custom .navbar-brand:hover,
 .navbar-custom .navbar-brand:focus ,
+.navbar-custom .navbar-nav .nav-link.active,
 .navbar-custom .navbar-nav .nav-link:hover,
 .navbar-custom .navbar-nav .nav-link:focus,
 .navbar-custom .navbar-nav .dropdown-menu .dropdown-item:hover,
