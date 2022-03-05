@@ -268,7 +268,6 @@ permalink: /posts/:title
 disqus: hdgcs
 date_format: "%Y-%m-%d"
 social-network-links:
-  email: "songhuangcn@gmail.com"
   rss: true  # remove this line if you don't want to show an RSS link at the bottom
   github: songhuangcn
 rss-description: hdgcs.com 最新文章
