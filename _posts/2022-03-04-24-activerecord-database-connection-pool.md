@@ -1,6 +1,7 @@
 ---
 title:  'ActiveRecord 的数据库连接池'
 tags:   [ActiveRecord, Database, Rails, Ruby]
+series: 'Rails 源码分析'
 ---
 
 ActiveRecord 的数据库配置中有一项 `pool` 值，默认是 5。这个值有什么用处呢？以及应该怎么配置？另外你是不是遇到过 `ActiveRecord::ConnectionTimeoutError` 异常？本文会带你彻底搞懂这些问题。

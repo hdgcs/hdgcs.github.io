@@ -2,6 +2,7 @@
 title:  'Postman 使用脚本加密请求参数'
 tags:   [Postman, JavaScript, API]
 cover-img: /assets/img/postman.jpg
+series: 'Postman 脚本'
 ---
 
 上一篇讲到了 [Postman 使用脚本添加 BA 认证](17-add-ba-authentication-by-script-in-postman)，

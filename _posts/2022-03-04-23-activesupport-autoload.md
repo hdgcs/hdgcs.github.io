@@ -1,6 +1,7 @@
 ---
 title:  'ActiveSupport 的 Autoload 扩展'
 tags:   [ActiveSupport, Rails, Ruby]
+series: 'Rails 源码分析'
 ---
 
 Ruby 有个内核方法 `autoload`，可以很方便的完成复杂的依赖加载，但是这个方法需要指定目录。遵守约定大于配置的 Rails，早已经定义好了

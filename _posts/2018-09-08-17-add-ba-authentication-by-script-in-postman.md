@@ -2,6 +2,7 @@
 title:  'Postman 使用脚本添加 BA 认证'
 tags:   [Postman, JavaScript, API]
 cover-img: /assets/img/postman.jpg
+series: 'Postman 脚本'
 ---
 
 BA 认证是对 API 请求的一种认证措施。主要是先组合请求的一些参数（例如请求时间、请求方法和请求路径）和双方约定的授权 key，

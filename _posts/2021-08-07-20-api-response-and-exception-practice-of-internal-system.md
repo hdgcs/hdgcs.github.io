@@ -1,7 +1,8 @@
 ---
 title:  '内部系统的 API 响应和异常实践'
-tags:   [API, API 响应, API 异常, 前后端分离]
+tags:   [API, Response, Exception]
 cover-img: /assets/img/api.png
+series: '前后端分离实战'
 ---
 
 Web 开发中前后端分离的一大阻碍是交互的数据结构复杂难用，离服务端直接渲染那样简单和灵活相差甚远。另外很多项目没考虑自身场景的滥用了 API 规范，比如内部的后台系统，经常被“规范”束缚强制统一响应结构，将 4xx 甚至 5xx 异常全部改成 2xx 响应，然后自己定义一套复杂的异常规范。

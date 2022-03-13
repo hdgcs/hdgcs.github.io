@@ -2,6 +2,7 @@
 title:  '一些 Ruby/Rails 小技巧续'
 tags:   [Ruby, Rails]
 cover-img: /assets/img/rails.jpg
+series: 'Ruby/Rails 小技巧'
 ---
 
 第一篇地址在这：[一些 Ruby/Rails 小技巧]({{ '/posts/9-some-tips-of-ruby-and-rails' | relative_url }})

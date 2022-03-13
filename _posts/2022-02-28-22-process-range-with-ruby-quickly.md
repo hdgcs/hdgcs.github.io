@@ -1,6 +1,7 @@
 ---
 title:  '如何用 Ruby 高效处理区间'
-tags:   [数据结构与算法, 红黑树, 跳表, Ruby]
+tags:   [LeetCode, Red–black tree, Skip list, Ruby]
+cover-img: /assets/img/ruby-range.png
 ---
 
 有个需求，需要使用 Ruby 处理区间，实现以下操作：

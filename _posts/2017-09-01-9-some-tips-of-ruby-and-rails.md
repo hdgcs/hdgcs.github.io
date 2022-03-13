@@ -2,6 +2,7 @@
 title:  '一些 Ruby/Rails 小技巧'
 tags:   [Ruby, Rails]
 cover-img: /assets/img/rails.jpg
+series: 'Ruby/Rails 小技巧'
 ---
 
 最近做项目的一些小记录，有些地方可能考虑的不对，发出来一起讨论，希望大家可以一起提高

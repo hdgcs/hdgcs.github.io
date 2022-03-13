@@ -1,5 +1,8 @@
 ---
 layout: base
+common-js:
+  - "/assets/js/beautifuljekyll.js"
+  - "/assets/js/post-toc.js"
 ---
 
 {% include header.html type="post" %}
@@ -39,14 +42,15 @@ layout: base
         </div>
       {% endif %}
 
+      {% include post_meta.html %}
+
       <article role="main" class="blog-post">
-        {% include toc.html html=content %}
         {{ content }}
       </article>
 
       {% if page.tags.size > 0 %}
         <div class="blog-tags">
-          <span>Tags:</span>
+          <span>标签：</span>
           {% for tag in page.tags %}
             <a href="{{ '/tags' | relative_url }}#{{- tag -}}">{{- tag -}}</a>
           {% endfor %}

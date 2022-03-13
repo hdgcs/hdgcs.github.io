@@ -1,6 +1,6 @@
 ---
 title:  '如何删库不跑路'
-tags:   [MySQL, 数据恢复, 数据安全, 数据备份]
+tags:   [MySQL, Backup, Recovery]
 cover-img: /assets/img/delete.jpg
 ---
 
