@@ -1,6 +1,6 @@
 ---
 title:  '如何用 Ruby 高效处理区间'
-tags:   [LeetCode, Red–black tree, Skip list, Ruby]
+tags:   [LeetCode, Red–black tree, Skip list, Ruby, Algorithm]
 cover-img: /assets/img/ruby-range.png
 ---
 

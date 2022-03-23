@@ -1,5 +1,8 @@
 name: tencent-cdn
-on: [push, pull_request]
+on: 
+  push:
+    branches:
+      - main
 jobs:
   fresh-cache:
     runs-on: ubuntu-latest
