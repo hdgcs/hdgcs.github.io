@@ -1,0 +1,17 @@
+# no version needed since 2020
+
+services:
+  jekyll:
+    image: hdgcs:dev
+    build: .
+    volumes:
+      - .:/app
+      - dev_rubygems:/rubygems
+    ports:
+      - '4000:4000'
+    command: bundle exec jekyll serve --force_polling --host 0.0.0.0 --port 4000 --config _config.yml,_config.override.yml,_config.docker.yml
+    environment:
+      JEKYLL_ENV: docker
+
+volumes:
+  dev_rubygems:

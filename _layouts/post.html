@@ -39,13 +39,15 @@ layout: base
         </div>
       {% endif %}
 
+      {% include post_meta.html %}
+
       <article role="main" class="blog-post">
         {{ content }}
       </article>
 
       {% if page.tags.size > 0 %}
         <div class="blog-tags">
-          <span>Tags:</span>
+          <span>标签：</span>
           {% for tag in page.tags %}
             <a href="{{ '/tags' | relative_url }}#{{- tag -}}">{{- tag -}}</a>
           {% endfor %}
@@ -67,12 +69,12 @@ layout: base
       <ul class="pagination blog-pager">
         {% if page.previous.url %}
         <li class="page-item previous">
-          <a class="page-link" href="{{ page.previous.url | relative_url }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title | strip_html | xml_escape}}">&larr; Previous Post</a>
+          <a class="page-link" href="{{ page.previous.url | relative_url }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title | strip_html | xml_escape}}">&larr; 上篇文章</a>
         </li>
         {% endif %}
         {% if page.next.url %}
         <li class="page-item next">
-          <a class="page-link" href="{{ page.next.url | relative_url }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title | strip_html | xml_escape}}">Next Post &rarr;</a>
+          <a class="page-link" href="{{ page.next.url | relative_url }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title | strip_html | xml_escape}}">下篇文章 &rarr;</a>
         </li>
         {% endif %}
       </ul>

@@ -19,26 +19,33 @@
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               {%- for childlink in link[1] -%}
                 {%- for linkparts in childlink %}
-                  <a class="dropdown-item" href="{{ linkparts[1] | relative_url }}">{{ linkparts[0] }}</a>
+                  {% assign menu_url = linkparts[1] | relative_url %}
+                  <a class="dropdown-item {% if menu_url == page.url %}active{% endif %}" href="{{ menu_url }}">{{ linkparts[0] }}</a>
                 {%- endfor -%}
               {%- endfor %}
             </div>
           </li>
         {% else %}
           <li class="nav-item">
-            <a class="nav-link" href="{{ link[1] | relative_url }}">{{ link[0] }}</a>
+            {% assign menu_url = link[1] | relative_url %}
+            <a class="nav-link {% if menu_url == page.url %}active{% endif %}" href="{{ menu_url }}">{{ link[0] }}</a>
           </li>
         {%- endif -%}
       {%- endfor -%}
       {% if site.post_search %}
         <li class="nav-item">
-          <a class="nav-link" id="nav-search-link" href="#" title="Search">
+          <a class="nav-link" id="nav-search-link" href="#" title="搜索">
             <span id="nav-search-icon" class="fa fa-search"></span>
-            <span id="nav-search-text">Search</span>
+            <span id="nav-search-text">搜索</span>
           </a>
         </li>
       {%- endif -%}
     </ul>
+  </div>
+
+  <div id="change-skin" title="夜间模式">
+    <span class="skin-btn dark-mode">🌙</span>
+    <span class="skin-btn light-mode">☀️</span>
   </div>
 
   {% if site.navbar-extra %}

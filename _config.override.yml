@@ -1,0 +1,23 @@
+# Override
+author: Song Huang
+title: 后端工程师
+url-pretty: hdgcs.com
+remove-ads: true
+navbar-links:
+  最新文章: "/"
+  标签列表: "tags"
+  关于: "about"
+permalink: /posts/:title
+disqus: hdgcs
+date_format: "%Y-%m-%d"
+social-network-links:
+  rss: true  # remove this line if you don't want to show an RSS link at the bottom
+  github: songhuangcn
+rss-description: hdgcs.com 最新文章
+share-links-active:
+  weibo: true
+  twitter: true
+  facebook: true
+avatar: null
+url: "https://hdgcs.com" # 给 jekyll-sitemap 用
+timezone: Asia/Shanghai
