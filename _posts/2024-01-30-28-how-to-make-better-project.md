@@ -4,11 +4,7 @@ tags:      [Guide, Project, Product]
 cover-img: /assets/img/cover-better-project.png
 ---
 
-软件项目大部分是维护多开发少，软件代码大部分是读多写少。因此，做好一个软件项目跟做完一个软件项目同等重要。
-
-那如何能做好一个软件项目呢？我从项目环境和文档、项目管理和项目代码三个方面总结了一些经验，希望对你有用。文章较长，我这里先附上一张思维导图，方便你了解全貌：
-
-![Better Project](/assets/img/better-project.png)
+软件项目大部分是维护多开发少，软件代码大部分是读多写少。因此，做好一个软件项目跟做完一个软件项目同等重要。那如何能做好一个软件项目呢？我从项目环境和文档、项目管理和项目代码三个方面总结了一些经验，希望对你有用。
 
 ## 项目环境和文档
 
@@ -202,6 +198,9 @@ SOLID 是面向对象设计和编程中的五个基本原则的缩写。对比�
 
 ## 总结
 
-以上就是做好一个软件项目的经验总结。打个广告，我当前开源了一个管理系统模板的开源项目：[songhuangcn/admin-template](https://github.com/songhuangcn/admin-template)，这是我用来实践这些经验的具体项目，希望对你有参考价值。
+以上就是做好一个软件项目的经验总结。主要包括“项目环境和文档”、“项目管理”和“项目代码”三个方面：
+![Better Project](/assets/img/better-project.png)
+
+打个广告，我当前开源了一个管理系统模板的开源项目：[songhuangcn/admin-template](https://github.com/songhuangcn/admin-template)，这是我用来实践这些经验的具体项目，希望对你有参考价值。
 
 如果你有关于软件项目好的实践或想法，欢迎一起讨论。
