@@ -8,7 +8,7 @@ series:    'Gin 源码分析'
 
 ## 前缀树和基数树
 
-首先我们来看下两种数据结构，他们在自动补全、拼写检查、路由匹配上应用非常广泛。
+首先我们来看下两种数据结构，它们在自动补全、拼写检查、路由匹配上应用非常广泛。
 
 [前缀树(Trie)](https://zh.wikipedia.org/wiki/Trie) 是一种树形数据结构，用于高效地存储和检索字符串数据集中的键。想进一步了解前缀树的实现，可以参考：[LeetCode - 208. 实现 Trie (前缀树)](https://leetcode.cn/problems/implement-trie-prefix-tree)
 
@@ -59,9 +59,9 @@ type node struct {
 }
 ```
 
-首先我们看到 Engine 对象中会存储一个长度为 0 容量为 9 的 methodTree 数组。这个 methodTree 就是基数树，容量为 9 是因为 HTTP 方法最多 9 个。举个例子如果我们的应用只注册了 `GET`、`POST` 两种 HTTP 方法的路由，那么应用的 trees 最终长度就是 2。
+首先我们看到 Engine 对象中会存储一个长度为 0 容量为 9 的 methodTree 数组。这个 methodTree 就是基数树，容量为 9 是因为 HTTP 方法最多 9 个。举个例子如果我们的应用只注册了 `GET`、`POST` 两种 HTTP 方法的路由，那么应用的 methodTree 数组最终长度就是 2。
 
-对于 methodTrees 数据结构，我们第一反应会想到 map，这里 Gin 选用了数组是因为长度小且有限，搜索成本不高，但能节省内存。思维扩展一下，这也告诉了我们，选数据结构应该是结合场景和数据量一起考虑。
+对于 methodTrees 数据结构，我们第一反应会想到 map，这里 Gin 选用了数组是因为长度小且有限，搜索成本不高，但能节省内存。思维扩展一下，这也告诉了我们，选择数据结构应该是结合场景和数据量一起考虑。
 
 其他关键信息都在 node 结构体了：
 - `path`: 路径段。比如依次插入了路径 /romane 和 /romanus ，那么会产生一个父节点，它的 path 为 /roman
@@ -176,7 +176,7 @@ walk: // Outer loop for walking the tree
 }
 ```
 
-搜索路由树的逻辑主要在 `node.getValue` 方法里，大致逻辑在代码注释中，可以当成是较复杂的前缀树搜索。
+搜索路由树的逻辑主要在 `node.getValue` 方法里，代码注释中给了大致步骤。
 
 我们这里主要是滤清调用栈和数据结构，具体算法细节有兴趣的可以深入方法查看。
 
