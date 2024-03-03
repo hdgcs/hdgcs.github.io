@@ -15,19 +15,19 @@ package main
 import "github.com/gin-gonic/gin"
 
 func main() {
-    // 1. 创建 Engine 对象
+    // 一、创建 Engine 对象
     gin := gin.New()
-    // 2. 注册中间件
+    // 二、注册中间件
     gin.Use(Logger(), Recovery())
-    // 3. 注册路由
+    // 三、注册路由
     gin.GET("/ping", func(c *gin.Context) {
         c.JSON(200, gin.H{
             "message": "pong",
         })
     })
-    // 4. 运行服务
+    // 四、运行服务
     gin.Run() // 监听并在 0.0.0.0:8080 上启动服务
-    // 5. 处理请求
+    // 五、处理请求
 }
 ```
 
@@ -35,7 +35,7 @@ func main() {
 
 上述代码不难理解，我们下面会按照注释的五个步骤进行分开讲解。
 
-## 创建 Engine 对象
+## 一、创建 Engine 对象
 
 我们先来看一下创建 Engine 的源码：
 ```golang
@@ -71,7 +71,7 @@ func New() *Engine {
 - 绑定路由组与 Engine
 - 配置上下文对象池的构造函数
 
-## 注册中间件
+## 二、注册中间件
 
 Gin 中间件是支持全局、路由组两种级别，其中：
 - 全局中间件存储在 `Engine.RouterGroup.Handlers` 属性中
@@ -120,7 +120,7 @@ func (group *RouterGroup) Group(relativePath string, handlers ...HandlerFunc) *R
 ```
 `Group` 方法会创建一个新 `RouterGroup` 对象，跟父级 `Group/Engine` 的中间件和基础路径两个属性进行合并。
 
-## 注册路由
+## 三、注册路由
 
 我们一般通过 `GET`, `POST`, `PUT`, `PATCH`, `DELETE` 等方法来注册路由，查看源码会发现它们都是通过统一的 `RouterGroup.handle` 方法来处理：
 ```golang
@@ -177,7 +177,7 @@ Gin 为每个 HTTP 方法单独创建一个路由树，且是动态创建，即�
 
 Gin 路由的处理程序其实就是最后一个中间件，Gin 中把他们统一抽象为了 Handler。
 
-## 运行服务
+## 四、运行服务
 
 Gin 运行服务逻辑其实很简单，是通过 net/http 库接口 `ServeHTTP` 来实现的：
 ```golang
@@ -229,7 +229,7 @@ Gin 运行服务是通过 net/http 库的 `ListenAndServe` 函数完成的，其
 
 Gin 的 Context 对象是 Gin 框架最重要的部分，后续的大部分 Web 功能都可以通过 Context 来完成，这个对象的源码值得单独一篇文章来讲解。
 
-## 处理请求
+## 五、处理请求
 
 上面运行服务成功后，后续的 HTTP 请求处理主要是在 `handleHTTPRequest` 方法中完成，我们来看一下相关源码：
 ```golang
