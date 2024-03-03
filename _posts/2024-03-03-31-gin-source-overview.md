@@ -290,8 +290,3 @@ func (c *Context) Next() {
 
 最后附上本文的导图供大家回顾：
 ![Gin Source Overview](/assets/img/gin-source-overview.png)
-
-## 扩展阅读
-
-- [Gin 源码](https://github.dev/gin-gonic/gin)
-- [HttpRouter 源码](https://github.com/julienschmidt/httprouter)
