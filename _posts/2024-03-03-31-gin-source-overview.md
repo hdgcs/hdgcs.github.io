@@ -169,7 +169,7 @@ func (engine *Engine) addRoute(method, path string, handlers HandlersChain) {
 }
 ```
 
-Gin 的路由使用的是基数树，是一种优化后的前缀树，他是提升 Gin 性能的主要原因，具体路由树的实现不在本文范畴。
+Gin 的路由使用的是[基数树](https://zh.wikipedia.org/zh-cn/%E5%9F%BA%E6%95%B0%E6%A0%91)，是一种优化后的前缀树，他是提升 Gin 性能的主要原因，具体路由树的实现不在本文范畴。
 
 Gin 为每个 HTTP 方法单独创建一个路由树，且是动态创建，即当应用没有用到 DELETE 路由时就不会创建 DELETE 路由树。
 
@@ -283,7 +283,7 @@ func (c *Context) Next() {
 
 遍历处理程序的进度存储在共享的 Context 层，这样设计是方便异常处理，当某个处理程序出现 panic 时，可以恢复进度并继续执行。默认启用的 Recovery 中间件就是一个异常恢复的实现。
 
-## 总结
+## 总结和建议
 
 以上是 Gin 框架源码的一个简单导读，如果想继续深入，以下是一些推荐的方向：
 - Gin 的路由树实现，了解 Radix 树是什么，为什么说他很快
