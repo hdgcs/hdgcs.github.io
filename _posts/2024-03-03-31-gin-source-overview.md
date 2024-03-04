@@ -229,6 +229,15 @@ Gin 运行服务是通过 net/http 库的 `ListenAndServe` 函数完成的，其
 
 Gin 的 Context 对象是 Gin 框架最重要的部分，后续的大部分 Web 功能都可以通过 Context 来完成，这个对象的源码值得单独一篇文章来讲解。
 
+另外有个有趣的地方在 Run 方法的参数处理中。我们都知道 Golang 是不支持可选参数的，它这里使用可变参数实现了可选：
+```golang
+func (engine *Engine) Run(addr ...string) (err error) {
+    address := resolveAddress(addr)
+    // ...
+}
+```
+这也是学习源码的一个好处，能学到一些方便实用的技巧。
+
 ## 五、处理请求
 
 上面运行服务成功后，后续的 HTTP 请求处理主要是在 `handleHTTPRequest` 方法中完成，我们来看一下相关源码：
@@ -286,7 +295,7 @@ func (c *Context) Next() {
 ## 总结和建议
 
 以上是 Gin 框架源码的一个简单导读，如果想继续深入，以下是一些推荐的方向：
-- Gin 的路由树实现，了解 Radix 树是什么，为什么说他很快
+- Gin 的路由树实现，了解基数树是什么，为什么说他很快
 - Gin 的重要对象的实现，例如 `Gin.Engine`、`Gin.Context`，方便了解到常见功能的实现
 - Gin 异常恢复逻辑，了解 Recover 中间件的实现
 - Gin 的优雅关停实现

@@ -61,12 +61,12 @@ type node struct {
 
 首先我们看到 Engine 对象中会存储一个长度为 0 容量为 9 的 methodTree 数组。这个 methodTree 就是基数树，容量为 9 是因为 HTTP 方法最多 9 个。举个例子如果我们的应用只注册了 `GET`、`POST` 两种 HTTP 方法的路由，那么应用的 methodTree 数组最终长度就是 2。
 
-对于 methodTrees 数据结构，我们第一反应会想到 map，这里 Gin 选用了数组是因为长度小且有限，搜索成本不高，但能节省内存。思维扩展一下，这也告诉了我们，选择数据结构应该是结合场景和数据量一起考虑。
+对于 methodTrees 底层数据结构，我们第一反应会想到使用 map，但这里 Gin 选用了数组。主要原因这里的数组长度小且有限（最多 9），搜索成本不高，但能节省内存。思维拓展一下，这也告诉了我们，选择数据结构应该是结合场景和数据量一起考虑。
 
 其他关键信息都在 node 结构体了：
 - `path`: 路径段。比如依次插入了路径 /romane 和 /romanus ，那么会产生一个父节点，它的 path 为 /roman
 - `indices`: 是一个字符串，节点的所有子节点的首字母。比如上面例子中，父节点的 indices 为 "eu"
-- nType：是一个枚举类型 nodeType，表示该节点的类型，取值有：
+- `nType`: 是一个枚举类型 nodeType，表示该节点的类型，取值有：
     - root：根节点
     - param：参数节点，比如 :id
     - catchAll：* 开头的节点，比如 *name
@@ -166,11 +166,11 @@ func (n *node) getValue(path string, params *Params, skippedNodes *[]skippedNode
 walk: // Outer loop for walking the tree
     for {
         // 从根节点开始，逐级遍历路由树。
-        // 对于每个节点，根据节点的类型（param、catchAll、static、root）执行不同的匹配逻辑。
+        // 对于每个节点，根据节点的类型（root、param、catchAll、static）执行不同的匹配逻辑。
+        // 如果节点是 root 类型，则匹配根路径。
         // 如果节点是 param 类型，则匹配参数。
         // 如果节点是 catchAll 类型，则匹配通配符。
         // 如果节点是 static 类型，则简单比较字符串。
-        // 如果节点是 root 类型，则匹配根路径。
         // ...
     }
 }
@@ -182,6 +182,8 @@ walk: // Outer loop for walking the tree
 
 ## 总结
 
-本文介绍了 Gin 框架的路由树的数据结构基数树，并深入源码了解了一下它的具体实现。其中核心算法的实现在文件 [tree.go](https://github.com/gin-gonic/gin/blob/v1.9.1/tree.go) 中。
+本文先介绍了 Gin 框架的路由树的数据结构基数树，并深入 Gin 路由树的定义、构建和搜索源码，了解了一下 Gin 中路由树的具体实现。
+
+其中核心算法的实现在文件 [tree.go](https://github.com/gin-gonic/gin/blob/v1.9.1/tree.go) 中。
 
 正是由于基数树数据结构低内存高性能的特点，使得 Gin 能拥有高效的路由解析功能。
