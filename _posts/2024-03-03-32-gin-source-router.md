@@ -4,7 +4,7 @@ tags:      [What, How, Why, Gin, Golang]
 series:    'Gin 源码分析'
 ---
 
-[Gin 源码分析概览](/posts/31-gin-source-overview) 中提到了 Gin 框架的路由树是通过 [基数树](https://zh.wikipedia.org/zh-cn/%E5%9F%BA%E6%95%B0%E6%A0%91) 实现的，它是怎么一种数据结构以及是如何做到高性能的呢？另外很多地方提到了 Gin 路由是基于 [HttpRouter](https://github.com/julienschmidt/httprouter)，但为啥 `go.mod` 中没有这个依赖呢？本文将为你解答这些疑问。
+[Gin 源码分析概览]({{ '/posts/31-gin-source-overview' | relative_url }}) 中提到了 Gin 框架的路由树是通过 [基数树](https://zh.wikipedia.org/zh-cn/%E5%9F%BA%E6%95%B0%E6%A0%91) 实现的，它是怎么一种数据结构以及是如何做到高性能的呢？另外很多地方提到了 Gin 路由是基于 [HttpRouter](https://github.com/julienschmidt/httprouter)，但为啥 `go.mod` 中没有这个依赖呢？本文将为你解答这些疑问。
 
 ## 前缀树和基数树
 
