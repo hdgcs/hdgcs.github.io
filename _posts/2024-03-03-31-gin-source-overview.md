@@ -16,17 +16,17 @@ import "github.com/gin-gonic/gin"
 
 func main() {
     // 一、创建 Engine 对象
-    gin := gin.New()
+    r := gin.New()
     // 二、注册中间件
-    gin.Use(Logger(), Recovery())
+    r.Use(gin.Logger(), gin.Recovery())
     // 三、注册路由
-    gin.GET("/ping", func(c *gin.Context) {
+    r.GET("/ping", func(c *gin.Context) {
         c.JSON(200, gin.H{
             "message": "pong",
         })
     })
     // 四、运行服务
-    gin.Run() // 监听并在 0.0.0.0:8080 上启动服务
+    r.Run() // 监听并在 0.0.0.0:8080 上启动服务
     // 五、处理请求
 }
 ```
