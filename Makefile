@@ -8,7 +8,7 @@ build:
 	docker compose build
 install:
 	docker compose run --rm jekyll bundle install
-up:
+run:
 	docker compose up --remove-orphans
-down:
+stop:
 	docker compose down --remove-orphans
